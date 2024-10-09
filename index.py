@@ -1,3 +1,5 @@
+#STACK
+
 # Given an array of intergers, remove all occurence of neighboring elements that add up to 8. If the 
 # removal of two integers creates a new pair that adds up to 8, remove those elements as well. 
 
