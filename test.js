@@ -52,7 +52,36 @@ const largestRightNumberOptimized = (numberArray) => {
 
 
 
-console.log(largestRightNumberOptimized([16, 17, 4, 3, 5, 2]));
-console.log(largestRightNumberOptimized([6, 5, 4, 3, 2, 1]));
-console.log(largestRightNumberOptimized([1, 2, 3, 4, 5, 6]));
-console.log(largestRightNumberOptimized([1,1,1,1]));
+console.log('largestRightNumberOptimized:',largestRightNumberOptimized([16, 17, 4, 3, 5, 2]));
+console.log('largestRightNumberOptimized:',largestRightNumberOptimized([6, 5, 4, 3, 2, 1]));
+console.log('largestRightNumberOptimized:',largestRightNumberOptimized([1, 2, 3, 4, 5, 6]));
+console.log('largestRightNumberOptimized:',largestRightNumberOptimized([1,1,1,1]));
+
+const stictlyIncreasing = (numberArray) => {
+
+    let increasingOrDecreasing = 1;
+    let pointer = 1
+    let trueOfFalse = true;
+
+    for(let i = 0; i <= numberArray.length; i++) {
+        if(numberArray[i] < numberArray[pointer]) {
+            pointer++;
+            continue;
+        } else if(numberArray[i] > numberArray[pointer]) {
+            trueOfFalse = false
+            if(!trueOfFalse) {
+                increasingOrDecreasing++;
+            }
+            
+        }
+    }
+
+    console.log('increasingOrDecreasing:', increasingOrDecreasing);
+
+    return increasingOrDecreasing === 2;
+
+}
+
+console.log('stictlyIncreasing:', stictlyIncreasing([1,2,6,5,3]))
+console.log('stictlyIncreasing:', stictlyIncreasing([5,8,8]))
+console.log('stictlyIncreasing:', stictlyIncreasing([5,2,1,4]))

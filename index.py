@@ -60,4 +60,30 @@ answer = Answer()
 print('getHighestRightWardNumber:', answer.getHighestRightWardNumber([16, 17, 4, 3, 5, 2]))
 print('getHighestRightWardNumber:', answer.getHighestRightWardNumber([1, 2, 3, 4, 5, 6]))
 print('getHighestRightWardNumber:', answer.getHighestRightWardNumber([6, 5, 4, 3, 2, 1]))
+
+class Answer2:
+    def stictlyIncreasing(self, numberArray):
+
+        true_or_false = True
+        increasing_or_decreasing = 1
+        pointer = 1
+
+        for i in range(len(numberArray)):
+            if numberArray[i] < numberArray[pointer]:
+                pointer += 1
+                continue
+            elif numberArray[i] > numberArray[pointer]:
+                true_or_false = False
+                if not true_or_false:
+                    increasing_or_decreasing += 1
+
+
+
+        return increasing_or_decreasing == 2
+    
+answer2 = Answer2()
+print('stictlyIncreasing:', answer2.stictlyIncreasing([1,2,6,5,3]))
+print('stictlyIncreasing:', answer2.stictlyIncreasing([5,8,8]))
+print('stictlyIncreasing:', answer2.stictlyIncreasing([5,2,1,4]))
+
                 
