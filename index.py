@@ -38,7 +38,7 @@ print('removeNeighboringEights:',solution.removeNeighboringEights(NUM_ARRAY))
 # Input: X[] = [1, 2, 3, 4, 5, 6], Output: [6]
 
 class Answer:
-    def getHighestRightWardNumber (self, numberArray: List[int]):
+    def getHighestRightWardNumber (self, numberArray: List[int]) -> List[int]:
 
         LARGEST_RIGHT_NUMBER = []
         smallest_number = float('-inf') 
@@ -62,7 +62,7 @@ print('getHighestRightWardNumber:', answer.getHighestRightWardNumber([1, 2, 3, 4
 print('getHighestRightWardNumber:', answer.getHighestRightWardNumber([6, 5, 4, 3, 2, 1]))
 
 class Answer2:
-    def stictlyIncreasing(self, numberArray):
+    def stictlyIncreasing(self, numberArray) -> bool:
 
         true_or_false = True
         increasing_or_decreasing = 1
@@ -86,4 +86,50 @@ print('stictlyIncreasing:', answer2.stictlyIncreasing([1,2,6,5,3]))
 print('stictlyIncreasing:', answer2.stictlyIncreasing([5,8,8]))
 print('stictlyIncreasing:', answer2.stictlyIncreasing([5,2,1,4]))
 
+
+# Given an integer array nums sorted in non-decreasing order, return an array of the squares of 
+# each number sorted in non-decreasing order.
+
+ 
+
+# Example 1:
+
+# Input: nums = [-4,-1,0,3,10]
+# Output: [0,1,9,16,100]
+# Explanation: After squaring, the array becomes [16,1,0,9,100].
+# After sorting, it becomes [0,1,9,16,100].
+# Example 2:
+
+# Input: nums = [-7,-3,2,3,11]
+# Output: [4,9,9,49,121]
                 
+class SortedSquaredNumbers:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+
+        SORTED_SQUARED_NUMBERS_ARRAY = [None] * len(nums)
+
+        left = 0
+        right = len(nums) - 1
+        position_in_array = len(nums) - 1
+
+        while(left <= right):
+
+            LEFT_SQUARED_NUMBERS = nums[left] ** 2
+            RIGHT_SQUARED_NUMBERS = nums[right] ** 2
+
+            if LEFT_SQUARED_NUMBERS > RIGHT_SQUARED_NUMBERS:
+                SORTED_SQUARED_NUMBERS_ARRAY[position_in_array] = LEFT_SQUARED_NUMBERS
+                left += 1
+            else:
+                SORTED_SQUARED_NUMBERS_ARRAY[position_in_array] = RIGHT_SQUARED_NUMBERS
+                right -= 1
+            position_in_array -= 1
+
+        return SORTED_SQUARED_NUMBERS_ARRAY
+    
+sortedSquaredNumbers = SortedSquaredNumbers()
+print('sortedSquares:', sortedSquaredNumbers.sortedSquares([-4,-1,0,3,10]))
+print('sortedSquares:', sortedSquaredNumbers.sortedSquares([-7,-3,2,3,11]))
+            
+
+
