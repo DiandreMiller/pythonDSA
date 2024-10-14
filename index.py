@@ -132,4 +132,28 @@ print('sortedSquares:', sortedSquaredNumbers.sortedSquares([-4,-1,0,3,10]))
 print('sortedSquares:', sortedSquaredNumbers.sortedSquares([-7,-3,2,3,11]))
             
 
+class Parenthesis:
+    def removeOuterParentheses(self, s: str) -> str:
+
+        parenthesis = ''
+        depth = 0
+
+        for i in range(len(s)):
+            if s[i] == '(':
+                if depth > 0:
+                    parenthesis += s[i]
+                depth += 1
+            elif s[i] == ')':
+                depth -= 1
+                if depth > 0:
+                    parenthesis += s[i]
+
+        return parenthesis
+    
+parenthesis = Parenthesis()
+print('parenthesis:', parenthesis.removeOuterParentheses("(()())(())"))
+print('parenthesis:', parenthesis.removeOuterParentheses("(()())(())(()(()))"))
+print('parenthesis:', parenthesis.removeOuterParentheses("()()"))
+
+
 
